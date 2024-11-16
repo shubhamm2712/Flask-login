@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
+            <h3>Register</h3>
+            {% with msgs = get_flashed_messages() %}
+                {% if msgs %}
+                    {% for msg in msgs %}
+                        <p>{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="mt-3">
+                <p>Register</p>
+            </div>
+            <form method="post">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="phone" placeholder="Enter phone">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Enter age">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}

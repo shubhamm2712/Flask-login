@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
+            <h3>Home</h3>
+            {% with msgs = get_flashed_messages() %}
+                {% if msgs %}
+                    {% for msg in msgs %}
+                        <p>{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% if user %}
+                <p>Hi {{user.name}}</p>
+                <o><a href="/auth/update-password">Change Password</a></o>
+            {% else %}
+                <p><a href="/auth/login">Login</a></p>
+                <p><a href="/auth/register">Register</a></p>
+            {% endif %}
+            <div class="mt-3">
+                <p>Welcome to auth</p>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}
